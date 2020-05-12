@@ -88,5 +88,7 @@ function game() {
         return "The game was a draw";
     }
 }
+
+    
 console.log(game())
 
