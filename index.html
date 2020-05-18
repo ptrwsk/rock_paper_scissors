@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
     <link rel= "stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <div class= "form">
@@ -22,13 +24,16 @@
         <input type="button" id="numberSetBtn" value="set">
     </form>
     </div>
-   
-    <button id="rockBtn">Rock </button>
-    <button id="paperBtn">Paper</button>
-    <button id="scissorsBtn">Scissors</button>
+   <div class="playerChoice">
+        <button id="rockBtn">Rock</button>
+        <button id="paperBtn">Paper</button>
+        <button id="scissorsBtn">Scissors</button>
+    </div>
     <div class = "opponentsChoice"></div>
     <div class = "result"></div>
-    <div class="score"></div>
+    <div class="winner"></div>
+    <div class="score">Computer score = 0 Player score= 0</div>
+    <button class="reset"><img src="unnamed.png"></button>
     
 </body>
 <script src="script.js"></script>
