@@ -1,12 +1,12 @@
 function game() {
   let gameover = false;
 
-  let numberSet = document.getElementById("numberOfPoints");
+  let numberSet = document.getElementById("maxRounds");
   let numberSetBtn = document.getElementById("numberSetBtn");
-  let numberOfPoints;
+  let maxRounds;
 
   numberSetBtn.addEventListener("click", function (e) {
-    numberOfPoints = numberSet.options[numberSet.selectedIndex].value;
+    maxRounds = numberSet.options[numberSet.selectedIndex].value;
   });
 
   let computerScore = 0;
@@ -61,18 +61,29 @@ function game() {
       }
     }
 
-    updateScore();
+    if (maxRounds == undefined) {
+      maxRounds = numberSet.options[numberSet.selectedIndex].value;
+    }
 
-    opponentsChoice.textContent = `Your opponents choice was ${computerSelection}`;
+  
+  let isGameOver = updateScore();
+	if(isGameOver) {
+
+    opponentsChoice.textContent = `Your opponent's choice was ${computerSelection}`;
     scoreDisplay.textContent = `Your score = ${playerScore} Computer's score 
 	= ${computerScore}`;
-    resultDisplay.textContent = roundResult;
+    return;
+  }
+
+  opponentsChoice.textContent = `Your opponent's choice was ${computerSelection}`;
+  scoreDisplay.textContent = `Your score = ${playerScore} Computer's score 
+= ${computerScore}`;
+  resultDisplay.textContent = roundResult;
     return roundResult;
   }
   const opponentsChoice = document.querySelector(".opponentsChoice");
   const scoreDisplay = document.querySelector(".score");
   const resultDisplay = document.querySelector(".result");
-  const winner = document.querySelector(".winner");
   const reset = document.querySelector(".reset");
 
   const rockBtn = document.querySelector("#rockBtn");
@@ -87,7 +98,9 @@ function game() {
     scoreDisplay.textContent = `Your score = ${playerScore} Computer's score 
 	= ${computerScore}`;
     resultDisplay.textContent = "";
-    winner.textContent = "";
+    resultDisplay.style.color = 'black';
+    maxRounds = undefined
+    
   });
 
   rockBtn.addEventListener("click", function (e) {
@@ -111,18 +124,19 @@ function game() {
       computerScore = computerScore;
       playerScore = playerScore;
     }
-    if (computerScore >= numberOfPoints || playerScore >= numberOfPoints) {
+    if (computerScore >= maxRounds || playerScore >= maxRounds) {
       if (computerScore > playerScore) {
-		winner.textContent = "Sorry...you lost the game";
-		winner.style.color = "red";
+		resultDisplay.textContent = "Sorry...you lost the game";
+    resultDisplay.style.color = "red";
       } else if (playerScore > computerScore) {
-		winner.textContent = "You WON the game!"
-		winner.style.color = "green";
+        resultDisplay.textContent = "You WON the game!";
+        resultDisplay.style.color = "green";
       } else {
-		winner.textContent = "The game was a draw";
-		winner.style.color = "gray";
+        resultDisplay.textContent = "The game was a draw";
+        resultDisplay.style.color = "gray";
       }
-      gameover = true;
+	  gameover = true;
+	  return gameover =true
     }
   }
 }
