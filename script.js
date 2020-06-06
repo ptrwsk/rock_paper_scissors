@@ -2,12 +2,12 @@ function game() {
   let gameover = false;
 
   let numberSet = document.getElementById("maxRounds");
-  let numberSetBtn = document.getElementById("numberSetBtn");
+  // let numberSetBtn = document.getElementById("numberSetBtn");
   let maxRounds;
 
-  numberSetBtn.addEventListener("click", function (e) {
-    maxRounds = numberSet.options[numberSet.selectedIndex].value;
-  });
+  // numberSetBtn.addEventListener("click", function (e) {
+  //   maxRounds = numberSet.options[numberSet.selectedIndex].value;
+  // });
 
   let computerScore = 0;
   let playerScore = 0;
@@ -20,11 +20,11 @@ function game() {
     }
     switch (randomWholeNumber()) {
       case 1:
-        return "rock";
+        return "ROCK";
       case 2:
-        return "paper";
+        return "PAPER";
       case 3:
-        return "scissors";
+        return "SCISSORS";
     }
   }
 
@@ -32,32 +32,33 @@ function game() {
     if (gameover == true) {
       return;
     }
+    disclaimer.textContent= ""
 
-    if (playerSelection == "rock") {
-      if (computerSelection == "rock") {
-        roundResult = "This round is a draw!";
-      } else if (computerSelection == "paper") {
-        roundResult = "Oopsie! You lost this round ;(((";
+    if (playerSelection == "ROCK") {
+      if (computerSelection == "ROCK") {
+        roundResult = "this round was a draw";
+      } else if (computerSelection == "PAPER") {
+        roundResult = "round lost";
       } else {
-        roundResult = "YEAAH YOU WON this round!";
+        roundResult = "round won";
       }
     }
-    if (playerSelection == "paper") {
-      if (computerSelection == "paper") {
-        roundResult = "This round is a draw!";
-      } else if (computerSelection == "scissors") {
-        roundResult = "Oopsie! You lost this round ;(((";
+    if (playerSelection == "PAPER") {
+      if (computerSelection == "PAPER") {
+        roundResult = "this round was a draw";
+      } else if (computerSelection == "SCISSORS") {
+        roundResult = "round lost";
       } else {
-        roundResult = "YEAAH YOU WON this round!";
+        roundResult = "round won";
       }
     }
-    if (playerSelection == "scissors") {
-      if (computerSelection == "scissors") {
-        roundResult = "This round is a draw!";
-      } else if (computerSelection == "rock") {
-        roundResult = "Oopsie! You lost this round ;(((";
+    if (playerSelection == "SCISSORS") {
+      if (computerSelection == "SCISSORS") {
+        roundResult = "this round was a draw";
+      } else if (computerSelection == "ROCK") {
+        roundResult = "round lost";
       } else {
-        roundResult = "YEAAH YOU WON this round!";
+        roundResult = "round won";
       }
     }
 
@@ -69,22 +70,24 @@ function game() {
   let isGameOver = updateScore();
 	if(isGameOver) {
 
-    opponentsChoice.textContent = `Your opponent's choice was ${computerSelection}`;
-    scoreDisplay.textContent = `Your score = ${playerScore} Computer's score 
-	= ${computerScore}`;
+    opponentsChoiceDisplay.textContent = `Opponent's choice:`
+    opponentsChoice.textContent = `${computerSelection}`;
+    scoreDisplay.textContent = `You = ${playerScore} Computer = ${computerScore}`;
     return;
   }
 
-  opponentsChoice.textContent = `Your opponent's choice was ${computerSelection}`;
-  scoreDisplay.textContent = `Your score = ${playerScore} Computer's score 
-= ${computerScore}`;
+  opponentsChoiceDisplay.textContent = `Opponent's choice:`
+  opponentsChoice.textContent = `${computerSelection}`;
+  scoreDisplay.textContent = `You = ${playerScore} Computer = ${computerScore}`;
   resultDisplay.textContent = roundResult;
     return roundResult;
   }
   const opponentsChoice = document.querySelector(".opponentsChoice");
+  const opponentsChoiceDisplay = document.querySelector(".opponentsChoiceDisplay")
   const scoreDisplay = document.querySelector(".score");
   const resultDisplay = document.querySelector(".result");
   const reset = document.querySelector(".reset");
+  const disclaimer= document.querySelector(".disclaimer");
 
   const rockBtn = document.querySelector("#rockBtn");
   const paperBtn = document.querySelector("#paperBtn");
@@ -94,31 +97,33 @@ function game() {
     playerScore = 0;
     computerScore = 0;
     gameover = false;
+    opponentsChoiceDisplay.textContent = "";
     opponentsChoice.textContent = "";
-    scoreDisplay.textContent = `Your score = ${playerScore} Computer's score 
-	= ${computerScore}`;
+    scoreDisplay.textContent = `You = ${playerScore} Computer = ${computerScore}`;
     resultDisplay.textContent = "";
     resultDisplay.style.color = 'black';
     maxRounds = undefined
+    numberSet.value = ""
+    disclaimer.textContent = "Set a maximum score!"
     
   });
 
   rockBtn.addEventListener("click", function (e) {
-    roundResult = singleRound("rock", computerPlay());
+    roundResult = singleRound("ROCK", computerPlay());
   });
 
   paperBtn.addEventListener("click", function (e) {
-    roundResult = singleRound("paper", computerPlay());
+    roundResult = singleRound("PAPER", computerPlay());
   });
 
   scissorsBtn.addEventListener("click", function (e) {
-    roundResult = singleRound("scissors", computerPlay());
+    roundResult = singleRound("SCISSORS", computerPlay());
   });
 
   function updateScore() {
-    if (roundResult == "YEAAH YOU WON this round!") {
+    if (roundResult == "round won") {
       playerScore += 1;
-    } else if (roundResult == "Oopsie! You lost this round ;(((") {
+    } else if (roundResult == "round lost") {
       computerScore += 1;
     } else {
       computerScore = computerScore;

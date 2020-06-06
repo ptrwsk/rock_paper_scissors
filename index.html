@@ -9,30 +9,45 @@
     
 </head>
 <body>
+    <header>
     <div class= "form">
-    <form>
-        Maximum score:
-        <select id= "maxRounds">
-            <option></option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-        </select>
-        <input type="button" id="numberSetBtn" value="set">
-    </form>
-    </div>
-   <div class="playerChoice">
-        <button id="rockBtn">Rock</button>
-        <button id="paperBtn">Paper</button>
-        <button id="scissorsBtn">Scissors</button>
-    </div>
-    <div class = "opponentsChoice"></div>
-    <div class = "result"></div>
-    <div class="score">Computer score = 0 Player score= 0</div>
-    <button class="reset"><img src="unnamed.png"></button>
+
+            <form>
+                Maximum score:
+                <select id= "maxRounds">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+                <!-- <input type="button" id="numberSetBtn" value="set"> -->
+            </form>
+        </div>
+        <div class="disclaimer">Set a maximum score!</div>
+    </header>
+    <main>
+
+        <div class = "opponentsChoiceDisplay"></div>
+        <div class = "opponentsChoice"></div>
+        <div class = "result"></div>
+        <div class="scoreTable"> SCORE
+            <div class="score">You = 0 Computer = 0</div>
+        </div>
+    </main>
+        <div class="playerChoice">
+            <div class="rock">
+                <button id="rockBtn"></button>
+            </div>
+            <div class="rest">
+
+                <button id="paperBtn"></button>
+                <button id="scissorsBtn"></button>
+            </div>
+        </div>
+        <button class="reset"></button>
     
 </body>
 <script src="script.js"></script>
