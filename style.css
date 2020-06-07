@@ -1,124 +1,76 @@
 
-    body {
-        width: 100%;
-        height: 100%;
+body {
+    width: 100%;
+    height: 100%;
     font-family: 'Jost', sans-serif ;
     display: flex;
     flex-direction: column;
-    
-    
+    margin: 0;
 }
+
 header {
  display: flex;
  flex-direction: row;
- justify-content: space-around;
+ justify-content: space-between;
+ margin: 10px 20px 20px 20px;
+ 
 }
-.disclaimer {
-    color: red;
-}
-.form {
-        display: flex;
-        justify-content: flex-start;
 
-        font-size: 14px;
-    }
-    #maxRounds {
-        
+.form {
+    display: flex;
+    justify-content: flex-start;
+
+    font-size: 14px;
+}
+
+#maxRounds {
         height: 20px;
         width: 40px;
         border-radius: 5px;
         outline: none;
         box-shadow: none;
         font-size: 12px;
-        background-color: rgba(255, 255, 255, 0.9);
         background-color: rgba(0,0,0, 0.25);
         color: white;
-    }
-    main {
+        border:none;
+}
+
+.disclaimer {
+    color: red;
+}
+
+main {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        
+}
+
+.topBar {
+    line-height: 30px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.opponentsChoice {  
+    font-size: 20px;  
+}
+
+.opponentsChoiceDisplay {
+    font-size: 17px;        
+}
+
+.result {
+   
+    font-size: 22px;   
+}
+
+.scoreTable {
+        display: flex;
         align-self: center;
-    }
-    .playerChoice {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-    }
-    .rock {
-        display: flex;
-    }
-    #rockBtn {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        box-shadow: none;
-        border: none;
         
-        background-image: url(https://static.vecteezy.com/system/resources/previews/000/690/865/non_2x/rock-paper-scissors-line-icons-vector.jpg);
-        background-position: -132px -65px ;
-        background-size: 320%;
-        outline: none;
-        cursor: pointer;
-    }
-    #paperBtn {
-        width: 120px;
-        height: 120px;
-        border: none;
-        border-radius: 50%;
-        box-shadow: none;
-        
-        background-image: url(https://static.vecteezy.com/system/resources/previews/000/690/865/non_2x/rock-paper-scissors-line-icons-vector.jpg);
-        background-position: -56px -196px ;
-        background-size: 320%;
-        outline: none;
-        margin-right: 5px;
-        cursor: pointer;
-
-    }
-    #scissorsBtn {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        box-shadow: none;
-        margin-left: 5px;
-        border: none;
-        
-        background-image: url(https://static.vecteezy.com/system/resources/previews/000/690/865/non_2x/rock-paper-scissors-line-icons-vector.jpg);
-        background-position: -208px -196px ;
-        background-size: 320%;
-        outline: none;
-        cursor: pointer;
-    }
-     #rockBtn:hover, #paperBtn:hover, #scissorsBtn:hover{
-        box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.3);
-    }
-    .opponentsChoice {
-      
-        
-
-    }
-    .opponentsChoiceDisplay {
-        
-
-    }
-    .result {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-    .scoreTable {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-content: center;
         text-align: center;
-        margin-bottom: 10px;;
-        
-       
     
         border-radius: 5px;
         background-color: lightgray;
@@ -127,36 +79,158 @@ header {
         color: white;
         font-size: 17px;
         margin-bottom: 40px;
-    }
+        margin-top: 5px;
+}
+
 .score {
-    
     margin-top: 10px;
     color: rgba(0, 0, 0, 0.87);
     font-size: 15px;
 }
 
+
+
+.playerChoice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.rock {
+    display: flex;
+}
+
+#rockBtn {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        box-shadow: none;
+        border: none;
+        
+        background-image: url(https://static.vecteezy.com/system/resources/previews/000/690/865/non_2x/rock-paper-scissors-line-icons-vector.jpg);
+        background-position: -126px -61px ;
+        background-size: 310%;
+        outline: none;
+        cursor: pointer;
+}
+
+#paperBtn {
+        width: 120px;
+        height: 120px;
+        border: none;
+        border-radius: 50%;
+        box-shadow: none;
+        
+        background-image: url(https://static.vecteezy.com/system/resources/previews/000/690/865/non_2x/rock-paper-scissors-line-icons-vector.jpg);
+        background-position: -52px -188px ;
+        background-size: 310%;
+        outline: none;
+        margin-right: 5px;
+        cursor: pointer;
+}
+
+#scissorsBtn {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        box-shadow: none;
+        margin-left: 5px;
+        border: none;
+        
+        background-image: url(https://static.vecteezy.com/system/resources/previews/000/690/865/non_2x/rock-paper-scissors-line-icons-vector.jpg);
+        background-position: -200px -188px ;
+        background-size: 310%;
+        outline: none;
+        cursor: pointer;
+}
+
+#rockBtn:hover, #paperBtn:hover, #scissorsBtn:hover{
+        box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.3);
+}
+.rockSelection {
+    color: #FFD300;
+}
+
+.paperSelection {
+    color: aqua;
+}
+
+.scissorsSelection {
+    color: violet;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
 .reset  {
     display: flex;
     align-self: center;
-    margin-top: 10px;
+    margin-top: 10vh;
+  
+    background-color: rgba(0, 0, 0, 0.2);
     
-    background-image: url(https://lh3.googleusercontent.com/proxy/JVH09qb1_BVL3MMobQXRuEpUI8sFBuJNhrPJ0HmgOIKvwQXjA6TT3CE01u_rWkVQU_yreDELFN3qJJjvI7KsN_BUwn9lKuQHWdVzavxT3BzeFqhyIfh1en0);
-    background-size: 200%;
-    background-position: -14px;
-    background-color: white;;
-
    width: 30px;
    height: 30px;
-   cursor: pointer; /* Mouse pointer on hover */
-   border: .5px solid rgba(0, 0, 0, 0.55);
+   cursor: pointer; 
+   border: .3px solid rgba(0, 0, 0, 0.1);;
    border-radius: 5px;
+   outline: none;
+   padding: 0px 0px;
+   
+   opacity: .8;
+}
+.resetImg {
 
-   opacity: .87;
-    }
+    background-image: url(unnamed.png);
+    background-size: 200%;
+    background-position: -14px;
+    height: 30px;
+    width: 30px;
+    outline: none;
+    border: none;
+}
+
 .reset:hover {
-    background-color: lightgray;
+    opacity: 1;
+    border: 0.3px solid rgba(0, 0, 0, 0.7);
 
 }
+.resetImg:hover {
+    animation-name: rotate;
+    animation-duration: .5s;
+}
+
+.resetclick:hover {
+    animation-name: full-rotation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes rotate {
+    20% {
+        transform: rotate(-7deg);
+    }
+    50% {
+        transform: rotate(25deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes full-rotation {
+    15% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
 
 
 
