@@ -13,6 +13,9 @@ function game() {
   let playerScore = 0;
 
   function computerPlay() {
+    if (gameover == true) {
+      return;
+    }
     let max = 3;
     let min = 1;
     function randomWholeNumber() {
@@ -20,10 +23,19 @@ function game() {
     }
     switch (randomWholeNumber()) {
       case 1:
+        opponentsChoice.classList.add('rockSelection')
+        opponentsChoice.classList.remove('paperSelection')
+        opponentsChoice.classList.remove('scissorsSelection')
         return "ROCK";
       case 2:
+        opponentsChoice.classList.add('paperSelection')
+        opponentsChoice.classList.remove('rockSelection')
+        opponentsChoice.classList.remove('scissorsSelection')
         return "PAPER";
       case 3:
+        opponentsChoice.classList.add('scissorsSelection')
+        opponentsChoice.classList.remove('paperSelection')
+        opponentsChoice.classList.remove('rockSelection')
         return "SCISSORS";
     }
   }
@@ -35,6 +47,7 @@ function game() {
     disclaimer.textContent= ""
 
     if (playerSelection == "ROCK") {
+      
       if (computerSelection == "ROCK") {
         roundResult = "this round was a draw";
       } else if (computerSelection == "PAPER") {
@@ -44,6 +57,7 @@ function game() {
       }
     }
     if (playerSelection == "PAPER") {
+      
       if (computerSelection == "PAPER") {
         roundResult = "this round was a draw";
       } else if (computerSelection == "SCISSORS") {
@@ -53,6 +67,7 @@ function game() {
       }
     }
     if (playerSelection == "SCISSORS") {
+      
       if (computerSelection == "SCISSORS") {
         roundResult = "this round was a draw";
       } else if (computerSelection == "ROCK") {
@@ -79,7 +94,7 @@ function game() {
   opponentsChoiceDisplay.textContent = `Opponent's choice:`
   opponentsChoice.textContent = `${computerSelection}`;
   scoreDisplay.textContent = `You = ${playerScore} Computer = ${computerScore}`;
-  resultDisplay.textContent = roundResult;
+  // resultDisplay.textContent = roundResult;
     return roundResult;
   }
   const opponentsChoice = document.querySelector(".opponentsChoice");
@@ -92,8 +107,12 @@ function game() {
   const rockBtn = document.querySelector("#rockBtn");
   const paperBtn = document.querySelector("#paperBtn");
   const scissorsBtn = document.querySelector("#scissorsBtn");
+  const resetImg =  document.querySelector(".resetImg")
 
   reset.addEventListener("click", function (e) {
+    
+
+    resetImg.classList.add('resetclick');
     playerScore = 0;
     computerScore = 0;
     gameover = false;
@@ -106,7 +125,13 @@ function game() {
     numberSet.value = ""
     disclaimer.textContent = "Set a maximum score!"
     
+    
   });
+  reset.addEventListener("mouseout", function (e) {
+    resetImg.classList.remove('resetclick')
+  })
+
+  
 
   rockBtn.addEventListener("click", function (e) {
     roundResult = singleRound("ROCK", computerPlay());
